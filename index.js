@@ -1,13 +1,16 @@
 const express = require("express");
 const { PORT, mongodbUri } = require("./src/config/config");
-const { ApolloServer, gql } = require("apollo-server-express");
+const { ApolloServer } = require("apollo-server-express");
 const { error, success } = require("consola");
 const typeDefs = require("./src/graphql/typeDefs/typeDefs");
 const resolvers = require("./src/graphql/resolvers/resolvers");
 const mongoose = require("mongoose");
 const { Todo } = require("./src/models/todo");
+const cors = require("cors");
 
 const app = express();
+
+app.use(cors());
 
 const server = new ApolloServer({
   typeDefs,
