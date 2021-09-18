@@ -13,6 +13,12 @@ exports.todo = gql`
     deleteTodoById(id: ID!): DeleteNotification!
   }
 
+  extend type Subscription {
+    todoCreated: Todo!
+    todoUpdated: Todo!
+    todoDeleted: String!
+  }
+
   input TodoInput {
     title: String!
     content: String!

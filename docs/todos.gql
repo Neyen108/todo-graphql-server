@@ -50,3 +50,25 @@ mutation DELETE_TODO_BY_ID($id: ID!) {
     success
   }
 }
+
+subscription {
+  todoDeleted
+}
+
+subscription {
+  todoCreated {
+    id
+    title
+    content
+    completed
+  }
+}
+
+subscription {
+  todoUpdated {
+    id
+    title
+    content
+    completed
+  }
+}
