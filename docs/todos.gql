@@ -51,11 +51,11 @@ mutation DELETE_TODO_BY_ID($id: ID!) {
   }
 }
 
-subscription {
+subscription ON_TODO_DELETED {
   todoDeleted
 }
 
-subscription {
+subscription ON_TODO_CREATED {
   todoCreated {
     id
     title
@@ -64,7 +64,7 @@ subscription {
   }
 }
 
-subscription {
+subscription ON_TODO_UPDATED {
   todoUpdated {
     id
     title

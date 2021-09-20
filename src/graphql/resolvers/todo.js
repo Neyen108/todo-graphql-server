@@ -4,7 +4,7 @@ const pubsub = new PubSub();
 exports.todoResolver = {
   Query: {
     getAllTodos: async (_, {}, { Todo }) => {
-      const todos = await Todo.find();
+      const todos = await Todo.find().sort({ createdAt: "desc" }).exec();
       return todos;
     },
 
